@@ -5,9 +5,8 @@ A dive into how the Windows Runtime (WinRT) notification infrastructure can be u
 Windows allows standard users to invoke notifications to the system tray using any `AppId` and the `ToastNotifcationManager`.
 
 This comes from how Windows identifies apps. Apps are assigned either by automatic assignment using the manifest
-(UWP/Packaged apps) or manually using WinRT’s API. We are then going to look up inside the AUMID registry. Unlike the standard
-verification applications, which often perform this, it does not check if the process was assigned by the callee, due to the _lack_ of an encryption
-method inside the call. If the AUMID exists, Windows grants that notification the visual identity (icon, name, and permissions)
+(UWP/Packaged apps) or manually using WinRT’s API. Unlike the standard
+verification applications, which often perform this, the Windows Notification Platform does not check if the process was assigned by the callee, due to the lack of an encryption method inside the call. If the AUMID (which can be extracted from the AUMID registry) exists, Windows grants that notification the visual identity (icon, name, and permissions)
 associated with that ID.
 
 If the attacker has successfully spoofed the desired program’s notification, it is only necessary to assign an action to the
