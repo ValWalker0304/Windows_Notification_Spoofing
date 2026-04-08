@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-windows = { version = "0.52", features = [
+windows = { version = "0.62", features = [
     "Data_Xml_Dom",
     "UI_Notifications",
 ] }
